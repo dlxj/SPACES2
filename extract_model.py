@@ -150,6 +150,8 @@ class Evaluator(keras.callbacks.Callback):
         if metrics['main'] >= self.best_metric:  # 保存最优
             self.best_metric = metrics['main']
             model.save_weights('weights/extract_model.%s.weights' % fold)
+            model.save_weights('/content/gdrive/MyDrive/extract_model.%s.weights' % fold)
+            
         metrics['best'] = self.best_metric
         print(metrics)
 
