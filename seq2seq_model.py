@@ -21,7 +21,7 @@ from snippets import *
 
 # 基本参数
 maxlen = 1024
-batch_size = 5
+batch_size = 3
 epochs = 1024
 k_sparse = 10
 data_seq2seq_json = data_json[:-5] + '_seq2seq.json'
@@ -296,6 +296,19 @@ class Evaluator(keras.callbacks.Callback):
         optimizer.apply_ema_weights()
         if epoch == epochs - 1:
             model.save_weights('weights/seq2seq_model.%s.weights' % epoch)  # 保存模型
+            model.save_weights('./gdrive/seq2seq_model.%s.weights' % epoch)
+        if epoch == 2:
+            model.save_weights('weights/seq2seq_model.%s.weights' % epoch)
+            model.save_weights('./gdrive/seq2seq_model.%s.weights' % epoch)
+        if epoch == 511:
+            model.save_weights('weights/seq2seq_model.%s.weights' % epoch)
+            model.save_weights('./gdrive/seq2seq_model.%s.weights' % epoch)
+        if epoch == 767:
+            model.save_weights('weights/seq2seq_model.%s.weights' % epoch)
+            model.save_weights('./gdrive/seq2seq_model.%s.weights' % epoch)
+        if epoch == 849:
+            model.save_weights('weights/seq2seq_model.%s.weights' % epoch)
+            model.save_weights('./gdrive/seq2seq_model.%s.weights' % epoch)
         optimizer.reset_old_weights()
 
 
